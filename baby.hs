@@ -28,3 +28,12 @@ main = do
 assert :: Bool -> a -> a
 assert False x = error "assertion failed!"
 assert _     x = x
+
+
+boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x] 
+
+length' xs = sum [1 | _ <- xs] -- _ is a wildcard that matches anything and we don't care what it is
+
+-- Just a friendly reminder: because strings are lists, we can use list comprehensions to process and produce strings. Here's a function that takes a string and removes everything except uppercase letters from it.
+
+onlyUpper s = [x | x <- s, x `elem` ['A'..'Z']]
