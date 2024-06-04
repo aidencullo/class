@@ -6,6 +6,7 @@
 
 
 
+doubleMe :: Int -> Int
 doubleMe x = x + x
 doubleUs x y = doubleMe x + doubleMe y
 
@@ -37,3 +38,30 @@ length' xs = sum [1 | _ <- xs] -- _ is a wildcard that matches anything and we d
 -- Just a friendly reminder: because strings are lists, we can use list comprehensions to process and produce strings. Here's a function that takes a string and removes everything except uppercase letters from it.
 
 onlyUpper s = [x | x <- s, x `elem` ['A'..'Z']]
+
+
+-- Define a recursive function to process the list
+processTuples :: [(Int, Int, Int)] -> [Int]
+processTuples [] = []
+processTuples ((x, y, z):rest) = (x + y + z) : processTuples rest
+
+-- Define your list of 3-tuples
+tuplesList :: [(Int, Int, Int)]
+tuplesList = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+
+-- Apply the function
+result :: [Int]
+result = processTuples tuplesList
+
+
+addThree :: Int -> Int -> Int -> Int
+addThree x y z = x + y + z
+
+factorial :: Integer -> Integer
+factorial n = product [1..n]
+
+circumference :: Float -> Float
+circumference r = 2 * pi * r
+
+circumference' :: Double -> Double
+circumference' r = 2 * pi * r
